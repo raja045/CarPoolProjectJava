@@ -1,18 +1,14 @@
 package com.company;
 
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class Main {
 
+    static SignupLogin signupLogin = new SignupLogin();
     public static void main(String[] args) throws SQLException {
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 1 to login and Enter 2 to signup");
-        int login = sc.nextInt();
-        if(login==1){
-            System.out.print("Enter your email/username: ");
-
+        int id = signupLogin.signup();
+        System.out.println(id);
         }
 
 
@@ -72,5 +68,5 @@ public class Main {
 
 
     }
-}
+
 

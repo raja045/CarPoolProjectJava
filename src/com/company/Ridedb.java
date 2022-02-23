@@ -78,49 +78,6 @@ public class Ridedb {
             connection.close();
         }
     }
-
-    void createuser(String name, String email, String password) throws SQLException {
-
-        try {
-            createConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into users (name,email,password) values(?,?,?);");
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, email);
-            preparedStatement.setString(3, password);
-            preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            System.err.println(e);
-        } finally {
-            connection.close();
-            System.out.println("Added data !");
-        }
-    }
-
-    void checkemail(String username){
-        try {
-            createConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("select username from users where username='"+username+"';");
-
-        }catch (Exception e)
-        {
-            System.err.println(e);
-        }
-    }
-
-    void checkpassword(String password){
-        try {
-            createConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("select password from users where username='"+password+"';");
-
-        }catch (Exception e)
-        {
-            System.err.println(e);
-        }
-    }
-
-
 }
 
 //    void createAccount(){
