@@ -7,9 +7,32 @@ public class Main {
     static SignupLogin signupLogin = new SignupLogin();
     public static void main(String[] args) throws SQLException {
 
-        int id = signupLogin.signup();
-        System.out.println(id);
+//        int id = signupLogin.signup();
+//        System.out.println(id);
+        User user = new User();
+        Admin admin = new Admin();
+        admin.allSource("delhi");
+        System.out.println(admin.totalFare());
+       //admin.allDestination("delhi");
+   //     user.displayride();
+         // user.displayPaticularRide("khammam","delhi");
+       // user.availableRides();
+
+      //  admin.totalFare();
+      //  admin.allDestination("khammam");
+       // admin.allSource("delhi");
+        System.out.println("-----------------------------------");
+       // admin.displayride();
         }
+
+
+
+
+
+
+
+
+
 
 
 //        System.out.println("Enter 1 for login");
