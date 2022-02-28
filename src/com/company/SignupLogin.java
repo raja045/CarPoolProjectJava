@@ -16,7 +16,8 @@ public class SignupLogin {
                System.out.print("Enter your email/username: ");
                String username = enteringdetails.next();
                if (Usersdb.checkuser(username) > 0) {
-                    System.out.println("Email Already exists");
+                    System.out.println("Email Already exists..!,Try to login");
+                    return signup();
                } else {
                     System.out.println("Please enter your password to login:");
                     String password = enteringdetails.next();
@@ -30,9 +31,13 @@ public class SignupLogin {
                System.out.println("Please enter your password:");
                String password = enteringdetails.next();
 
-             int id = Usersdb.checkpassword(username,password);
-               System.out.println("Successfully logged in");
-             return id;
+               int id = Usersdb.checkpassword(username,password);
+               if(id==0){
+                    System.out.println("Entered Incorrect Username / password. Create an account if you don't have one ");
+               return signup();}
+               else {
+                    System.out.println("Successfully logged in");
+             }
           }
           return 0;
      }

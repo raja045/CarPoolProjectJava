@@ -3,14 +3,15 @@ package com.company;
 import java.sql.*;
 
 public class Ridedb {
-    Connection connection = null;
-    Statement statement = null;
+    static Connection connection = null;
+    static Statement statement = null;
+    static int i;
 
-    void createConnection() throws SQLException {
+    static void createConnection() throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/raja", "rajashekar", "1234");
     }
 
-    void saveRide(int id, String source, String destination, int fare) throws SQLException {
+    static void createRide(int id, String source, String destination, int fare) throws SQLException {
         try {
             createConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("insert into ride values(?,?,?,?)");
@@ -44,19 +45,25 @@ public class Ridedb {
         }
     }
 
-    void deleteRide(int id) throws SQLException {
+    static int deleteRide(int id) throws SQLException {
         statement = connection.createStatement();
         try {
             createConnection();
-            statement.executeUpdate("delete from ride where id=" + id);
+           i = statement.executeUpdate("delete from ride where id=" + id);
         } catch (Exception e) {
             System.err.println(e);
         } finally {
             connection.close();
         }
-    }
+        if(i==1){
+            System.out.println("Successfully Deleted");
+        }
+        else{
+            System.out.println("Deleted Failed.");
+        }
+    return i;}
 
-    void updateRide(int id, String source, String destination, int fare) throws SQLException {
+    static void updateRide(int id, String source, String destination, int fare) throws SQLException {
         try {
             createConnection();
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/raja", "rajashekar", "1234");
@@ -65,7 +72,11 @@ public class Ridedb {
             preparedStatement.setString(2, destination);
             preparedStatement.setInt(3, fare);
             preparedStatement.setInt(4, id);
-            preparedStatement.executeUpdate();
+           i= preparedStatement.executeUpdate();
+           if(i==1)
+               System.out.println("Ride is updated Successfully..!");
+           else
+               System.out.println("Updation failed...");
 
            /*  connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/raja","rajashekar",1234);
              statement = connection.createStatement();

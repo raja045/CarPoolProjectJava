@@ -60,6 +60,7 @@ public class Ride {
         this.id = id;
     }
 
+
 }
 
 

@@ -11,7 +11,7 @@ public class User {
     void displayPaticularRide(String source, String destination) throws SQLException {
         connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/raja", "rajashekar", "1234");
         statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select id, source, destination,fare from ride where available = true and source ='" + source + "'and destination ='" + destination + "';");
+        ResultSet resultSet = statement.executeQuery("select id, source, destination,fare from ride where source ='" + source + "'and destination ='" + destination + "';");
         System.out.println("ID Source  Destination Fare");
         while (resultSet.next()) {
             System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2) + " " + resultSet.getString(3) + " " + resultSet.getInt(4));

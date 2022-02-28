@@ -47,8 +47,7 @@ public class Usersdb {
             ResultSet resultSet = statement.executeQuery("select userid from pusers where email='"+username+"';");
             if(resultSet.next()){
                 return resultSet.getInt(1);
-            }}
-        catch (Exception e){
+            }}catch (Exception e){
             System.err.println(e);
         }
         return 0;

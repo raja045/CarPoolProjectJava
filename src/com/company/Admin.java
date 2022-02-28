@@ -16,10 +16,11 @@ public class Admin extends User{
         try {
             createconnection();
             ResultSet resultSet = statement.executeQuery("select distinct destination from ride where source='"+source+"';");
+            System.out.print("List of All destinations are: ");
 
             // ResultSet resultSet = statement.executeQuery("select destination from rides where source ='" + source + "';");
             while (resultSet.next()) {
-                System.out.println(resultSet.getString(1));
+                System.out.print(resultSet.getString(1)+" ");
             }
         } catch (Exception e) {
             System.err.println(e);
@@ -33,8 +34,9 @@ public class Admin extends User{
         try{
         createconnection();
         ResultSet resultSet = statement.executeQuery("select distinct source from ride where destination='"+destination+"';");
+            System.out.print("List of All source places: ");
         while (resultSet.next()){
-            System.out.println(resultSet.getString(1));
+            System.out.print(resultSet.getString(1)+" ");
         }}catch (Exception e){
             System.err.println(e);
         }finally {
