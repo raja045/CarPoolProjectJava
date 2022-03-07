@@ -66,4 +66,19 @@ public class Usersdb {
         }
         return 0;
     }
+    static void changepassword(String oldpassword, String newpassword) throws SQLException{
+        try {
+            createConnection();
+            Statement statement = connection.createStatement();
+           int i =  statement.executeUpdate("update pusers set password='"+newpassword+"' where password='"+oldpassword+"';");
+           if(i==1)
+               System.out.println("Updated Successfully");
+           else
+               System.out.println("something went wrong..!.Try again Later");
+        }catch (Exception e){
+            System.err.println(e);
+        }finally {
+            connection.close();
+        }
+    }
 }

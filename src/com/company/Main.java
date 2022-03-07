@@ -29,6 +29,7 @@ public class Main {
             System.out.println("Enter 7 to display all the rides");
             System.out.println("Enter 8 to display all available rides:");
             System.out.println("Enter 9 to display a praticular ride:");
+            System.out.println("Enter 10 to Change Password:");
 
             System.out.println("Please Provide your input here:");
             op = sc.nextInt();
@@ -92,6 +93,12 @@ public class Main {
                     destination = sc.next();
                     System.out.println("Displaying the particular ride: ");
                     user.displayPaticularRide(source, destination);
+                case 10:
+                    System.out.print("Enter old password: ");
+                    source = sc.next();
+                    System.out.print("Enter new password: ");
+                    destination = sc.next();
+                    Usersdb.changepassword(source,destination);
             }
         }
     }
@@ -122,19 +129,7 @@ public class Main {
 //        System.out.println( usersdb.checkuser("vasu@gmail.com"));
 
     }
-
-
-
 }
-
-
-
-
-
-
-
-
-
 
 //        System.out.println("Enter 1 for login");
 //        int lognum = sc.nextInt();
@@ -142,7 +137,6 @@ public class Main {
 //        {
 //
 //        }
-
 
 //        Admin ob = new Admin();
 //        User raja = new User();
